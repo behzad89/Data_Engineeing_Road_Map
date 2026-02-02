@@ -27,8 +27,8 @@ website:
         href: https://github.com/behzad89/Data_Engineeing_Road_Map
     contents:
       - index.qmd
-      - text: about
-        href: behzad-valipour.netlify.app
+      - text: About Author
+        href: https://behzad-valipour.netlify.app
 
 format:
   html:
