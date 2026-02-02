@@ -4,7 +4,17 @@
     "href": "index.html",
     "title": "Data Engineering Road Map",
     "section": "",
-    "text": "Data Engineering Road Map",
+    "text": "Hello! I’ve decided to create a repository to share my experience and knowledge in data engineering, with a particular focus on Geospatial Data Engineering, on this website. I’ll start with the fundamentals, and as I progress to more advanced topics, I’ll continue adding new chapters.\n\n\n\nTech Fundemental\nAWS Sollution Architechure\nCI/CD ،Terraform ،Ansible\nDocker Technology\nSQL Language\nApache Spark Sedona\nPrefect & Airflow\nFast API",
+    "crumbs": [
+      "Data Engineering Road Map"
+    ]
+  },
+  {
+    "objectID": "index.html#agenda",
+    "href": "index.html#agenda",
+    "title": "Data Engineering Road Map",
+    "section": "",
+    "text": "Tech Fundemental\nAWS Sollution Architechure\nCI/CD ،Terraform ،Ansible\nDocker Technology\nSQL Language\nApache Spark Sedona\nPrefect & Airflow\nFast API",
     "crumbs": [
       "Data Engineering Road Map"
     ]

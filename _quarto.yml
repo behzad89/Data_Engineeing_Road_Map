@@ -11,7 +11,7 @@ website:
 
   page-footer:
     center: |
-      [[Author: Behzad Valipour Sh.]{.green}](behzad-valipour.netlify.app), Senior Software Engineer & team leader at [[Imago]{.blue}](https://imago.ac.uk) project.
+      [Author:[Behzad Valipour Sh.]{.green}](https://behzad-valipour.netlify.app), Senior Software Engineer & team leader at [[Imago]{.blue}](https://imago.ac.uk) project.
 
   repo-url: https://github.com/behzad89/Data_Engineeing_Road_Map
   repo-branch: main
@@ -39,4 +39,4 @@ format:
 editor: visual
 
 # Website URL for reference
-url: https://imago-sdruk.github.io/EMBED2Social-Workshop-2026/
+url: https://github.com/behzad89/Data_Engineeing_Road_Map
