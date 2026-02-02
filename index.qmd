@@ -21,3 +21,10 @@ Hello! I’ve decided to create a repository to share my experience and knowledg
 -   Prefect & Airflow
 
 -   Fast API
+
+## 🙋 License
+
+This repository uses a dual-licensing approach:
+
+-   **MIT License** for all software code
+-   **Creative Commons Attribution 4.0 International (CC BY 4.0)** for documentation, data, and non-code content
