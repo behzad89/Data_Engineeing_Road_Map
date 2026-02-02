@@ -7,7 +7,7 @@ project:
     - "index.qmd"
 
 website:
-  title: "Data Engineering Road Map"
+  title: "DE Roadmap"
 
   page-footer:
     center: |
@@ -34,7 +34,7 @@ format:
   html:
     theme:
       - cosmo
-      - assets/imago.scss
+      - assets/styles.scss
 
 editor: visual
 
