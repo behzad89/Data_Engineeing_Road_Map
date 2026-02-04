@@ -207,6 +207,34 @@ Important
 <p>Encapsulation is the process of taking some data, and wrapping it inside the frame.</p>
 </div>
 </div>
+<p>Still <strong>Hub</strong> can cause collision when both computers try to send the message. To avoid this collision, we can use <strong>Switch</strong>. Switch is a layer 2 device. It works the same way physically as hub, but it understand layer 2 so provides significant advantages.</p>
+<p>Switch understand frames and MAC addresses. They maintain a MAC address table which starts off empty. As the switch receives frames on its port, it learn which devices are connected and populates the MAC address table.</p>
+<p>If a frame is transmitted to specific MAC address, it will be forwarded to the specific port if the destination MAC address is in the table. If not, it will be forwarded to all the ports. Any frames with All f’s will always be forwarded to all ports.</p>
+<p>Switches store and forward. They do not repeat blindly like hubs. It means that only valid frames are forwarded. Collisions are isolated on the port they occurred. Every X port switch has X collision domains meaning every port on a switch creates its own collision domain, allowing multiple simultaneous transmissions without collisions.</p>
+</section>
+<section id="network-layer" class="level3">
+<h3 class="anchored" data-anchor-id="network-layer">Network Layer</h3>
+<p>Newtwork layer is the common protocol, which can spam multiple different layer 2 (data link layer) networks. This layer can be added onto one or more layer 2 networks and it adds a few capabilities. It adds the <strong>internet protocol or IP</strong> which is across networking addresses, and can be assigned to devices. This can be used to communicate across networks using routing.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Devices called routers, which are layer 3 devices, move packets of data across different networks. They encapsulate a packet inside of an ethernet frame for that part of the journey over that local network.</p>
+</div>
+</div>
+<p>Packet is the data unit used within the internet protocol which is layer 3 protocol. Packets in many ways are similar to frames. They contain some data to be moved and they have the source and destination address.</p>
+<p>The difference is that with frames, both the source and destination are generally local. With an IP pocket, the destination and source addresses could be on opposite sides of the planet. During their journey from source to destination, packets remain the same. As they move across layer 2 networks, they are placed inside frames which is known as encapsulation.</p>
+<p>Two version of the internet protocol in use:</p>
+<ul>
+<li><p>version four which has been used for decades.</p></li>
+<li><p>version six which adds more scalability</p></li>
+</ul>
 
 
 </section>
