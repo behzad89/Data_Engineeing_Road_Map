@@ -171,3 +171,12 @@ $presentation-menu-color: $grey;
 h1, h2, h3, h4, h5, h6 {
     color: $navy;
   }
+
+// Change the cover image size and position
+  .quarto-cover-image {
+    max-width: 240px;   /* ← change this */
+    height: auto;
+    margin-top: -1.5rem;   /* move up */
+    margin-bottom: 1.5rem;
+    display: block;
+  }

@@ -1,0 +1,42 @@
+project:
+  type: website
+  output-dir: ./docs
+  resources:
+    - "assets"
+  render:
+    - "index.qmd"
+
+website:
+  title: "DE Roadmap"
+
+  page-footer:
+    center: |
+      [Author:[Behzad Valipour Sh.]{.green}](https://behzad-valipour.netlify.app), Senior Software Engineer & team leader at [[Imago]{.blue}](https://imago.ac.uk) project.
+
+  repo-url: https://github.com/behzad89/Data_Engineeing_Road_Map
+  repo-branch: main
+
+  search:
+    location: sidebar
+    type: overlay
+  sidebar:
+    style: floating
+    collapse-level: 1
+    tools:
+      - icon: github
+        href: https://github.com/behzad89/Data_Engineeing_Road_Map
+    contents:
+      - index.qmd
+      - text: About Author
+        href: https://behzad-valipour.netlify.app
+
+format:
+  html:
+    theme:
+      - cosmo
+      - assets/styles.scss
+
+editor: visual
+
+# Website URL for reference
+url: https://github.com/behzad89/Data_Engineeing_Road_Map

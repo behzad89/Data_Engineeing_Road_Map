@@ -2,31 +2,51 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Data Engineering Road Map",
+    "title": "DE Roadmap",
     "section": "",
-    "text": "Hello! I’ve decided to create a repository to share my experience and knowledge in data engineering, with a particular focus on Geospatial Data Engineering, on this website. I’ll start with the fundamentals, and as I progress to more advanced topics, I’ll continue adding new chapters.\n\n\n\n\nTech Fundemental\nAWS Sollution Architechure\nCI/CD ،Terraform ،Ansible\nDocker Technology\nSQL Language\nApache Spark Sedona\nPrefect & Airflow\nFast API\n\n\n\n\nThis repository uses a dual-licensing approach:\n\nMIT License for all software code\nCreative Commons Attribution 4.0 International (CC BY 4.0) for documentation, data, and non-code content",
+    "text": "Data Engineering Road Map\nHello! I’ve decided to create a repository to share my experience and knowledge in data engineering, with a particular focus on Geospatial Data Engineering, on this website. I’ll start with the fundamentals, and as I progress to more advanced topics, I’ll continue adding new chapters.",
     "crumbs": [
-      "Data Engineering Road Map"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Data Engineering Road Map</span>"
     ]
   },
   {
     "objectID": "index.html#agenda",
     "href": "index.html#agenda",
-    "title": "Data Engineering Road Map",
-    "section": "",
-    "text": "Tech Fundemental\nAWS Sollution Architechure\nCI/CD ،Terraform ،Ansible\nDocker Technology\nSQL Language\nApache Spark Sedona\nPrefect & Airflow\nFast API",
+    "title": "DE Roadmap",
+    "section": "📋 Agenda",
+    "text": "📋 Agenda\n\nTech Fundemental\nAWS Sollution Architechure\nCI/CD ،Terraform ،Ansible\nDocker Technology\nSQL Language\nApache Spark Sedona\nPrefect & Airflow\nFast API",
     "crumbs": [
-      "Data Engineering Road Map"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Data Engineering Road Map</span>"
     ]
   },
   {
     "objectID": "index.html#license",
     "href": "index.html#license",
-    "title": "Data Engineering Road Map",
-    "section": "",
-    "text": "This repository uses a dual-licensing approach:\n\nMIT License for all software code\nCreative Commons Attribution 4.0 International (CC BY 4.0) for documentation, data, and non-code content",
+    "title": "DE Roadmap",
+    "section": "🙋 License",
+    "text": "🙋 License\nThis repository uses a dual-licensing approach:\n\nMIT License for all software code\nCreative Commons Attribution 4.0 International (CC BY 4.0) for documentation, data, and non-code content",
     "crumbs": [
-      "Data Engineering Road Map"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Data Engineering Road Map</span>"
+    ]
+  },
+  {
+    "objectID": "modules/Tech_Fundemental.html",
+    "href": "modules/Tech_Fundemental.html",
+    "title": "Tech Fundemental",
+    "section": "",
+    "text": "OSI 7-Layer Networking Model\nAll the information presented here was collected from the Tech Fundamentals course by Adrian Cantrill. I summarized the material to make it easier for myself and others to review it quickly; however, I recommend taking the course itself, as it is free of charge and provides much more detailed information.\nThe OSI (Open Systems Interconnection) model is a conceptual framework that describes the communication functions of a telecommunication or computer system. It includes 7 layers which is divided into two layers including Media Layers and Host Layers.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tech Fundemental</span>"
+    ]
+  },
+  {
+    "objectID": "modules/Tech_Fundemental.html#osi-7-layer-networking-model",
+    "href": "modules/Tech_Fundemental.html#osi-7-layer-networking-model",
+    "title": "Tech Fundemental",
+    "section": "",
+    "text": "Physical Layer\nLet’s imagine, we have two laptops and we want to connect them together. Since both laptops have network interface card, they can be connected using the network cable. We will use the copper network cable to create point-to-point electrical shared medium between these two devices. Physical medium can be copper, Fiber or WiFi.\nPhysical Layer specification define the transmission and reception of raw bit streams between a device and a shared physical medium. Specification means that both laptops have shared understanding of the physical medium.\nIf a device is referred as layer X, it means the device has functionality for layer X and below\nIf there is a more than two devices, it is not possible to connect them using the network cable, instead we can add a device called a HUB. The HUB job is to transmit anything received on any port, to every other port including any errors & collisions.\nCuople of points should be considered about physical layer:\n\nThere is no individual address, and all the data is processed by all devices.\nIf multiple devices transmit at once - a collision occurs\nIt has no media access control and no collision detection\n\n\n\nData Link Layer\nIt runs over the physical layer. There are different data link layer protocol & standards for the different situation. It defines the a new concept called frame.\nFrames are a format for sending information over a layer 2 network. Layer 2 also introduces a unique hardware address, called MAC address e.g. 3e:22:fb:b9:5b:75 for every device in the network. The MAC address is hexadecimal address, and it is 48 bits long. THe MAC address is not software assigned, in other word, the address is uniquely attached to a specific piece of hardware.\nThe MAC address is formed of two parts:\n\nOUI which is the organizationally unique identifier and this assigned to companies who manufacture network devices.\nNIC (Network interface controller)\n\nCombining these two parts together causing the MAC address be globally unique.\nThe frame is the thing that layer two uses for communication is a container of sorts, and has a few different components:\n\nThe Preamble & start frame delimiter. It allows the devices to know that it’s the start of the frame, so they can identify the various parts of that frame.\nThe destination and the source MAC addresses.\nEtherType which is commonly used to specify which layer three protocol is putting its data inside a frame\nPayload which is anywhere from 46 to 1500 bites in size for standard frames. It contains the data that the frame is sending. The data is generally provided by the layer three protocol and the protocol which is used\nFrame check sequence which is used to identify any errors in the frame.\n\n\n\n\n\n\n\n\nLayer 2 - Data Link - Frame, Source: Tech Fundamentals Course by Adrian Cantrill",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tech Fundemental</span>"
     ]
   }
 ]

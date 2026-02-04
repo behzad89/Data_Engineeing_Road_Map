@@ -1,42 +1,35 @@
 project:
-  type: website
+  type: book
   output-dir: ./docs
   resources:
     - "assets"
   render:
     - "index.qmd"
+    - "modules/Tech_Fundemental.qmd"
 
-website:
+book:
   title: "DE Roadmap"
-
-  page-footer:
-    center: |
-      [Author:[Behzad Valipour Sh.]{.green}](https://behzad-valipour.netlify.app), Senior Software Engineer & team leader at [[Imago]{.blue}](https://imago.ac.uk) project.
-
+  author:
+    name: "Behzad Valipour Sh."
+    url: https://behzad-valipour.netlify.app
+  date: today
+  cover-image: assets/logos/logo.png
+  favicon: assets/logos/logo.png
   repo-url: https://github.com/behzad89/Data_Engineeing_Road_Map
   repo-branch: main
+  page-footer:
+    center: |
+      Author:[[Behzad Valipour Sh.]{.green}](https://behzad-valipour.netlify.app), Senior Software Engineer & team leader at [[Imago]{.blue}](https://imago.ac.uk) project.
 
-  search:
-    location: sidebar
-    type: overlay
-  sidebar:
-    style: floating
-    collapse-level: 1
-    tools:
-      - icon: github
-        href: https://github.com/behzad89/Data_Engineeing_Road_Map
-    contents:
-      - index.qmd
-      - text: About Author
-        href: https://behzad-valipour.netlify.app
+
+  chapters: 
+    - "index.qmd"
+    - "modules/Tech_Fundemental.qmd"
+number-sections: false
 
 format:
   html:
     theme:
       - cosmo
       - assets/styles.scss
-
-editor: visual
-
-# Website URL for reference
-url: https://github.com/behzad89/Data_Engineeing_Road_Map
+    toc: false

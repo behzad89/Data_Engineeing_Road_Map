@@ -1,0 +1,53 @@
+# Tech Fundemental
+
+All the information presented here was collected from the [Tech Fundamentals course](https://learn.cantrill.io/p/tech-fundamentals) by [Adrian Cantrill](linkedin.com/in/adriancantrill). I summarized the material to make it easier for myself and others to review it quickly; however, I recommend taking the course itself, as it is free of charge and provides much more detailed information.
+
+## **OSI 7-Layer Networking Model**
+
+The OSI (Open Systems Interconnection) model is a conceptual framework that describes the communication functions of a telecommunication or computer system. It includes 7 layers which is divided into two layers including Media Layers and Host Layers.
+
+### Physical Layer
+
+Let's imagine, we have two laptops and we want to connect them together. Since both laptops have network interface card, they can be connected using the network cable. We will use the copper network cable to create **point-to-point electrical shared medium** between these two devices. Physical medium can be copper, Fiber or WiFi.
+
+Physical Layer specification define the transmission and reception of raw bit streams between a device and a shared physical medium. Specification means that both laptops have shared understanding of the physical medium.
+
+If a device is referred as layer X, it means the device has functionality for layer X and below
+
+If there is a more than two devices, it is not possible to connect them using the network cable, instead we can add a device called a **HUB.** The HUB job is to transmit anything received on any port, to every other port including any errors & collisions.
+
+Cuople of points should be considered about physical layer:
+
+-   There is no individual address, and all the data is processed by all devices.
+
+-   If multiple devices transmit at once - a collision occurs
+
+-   It has no media access control and no collision detection
+
+### Data Link Layer
+
+It runs over the physical layer. There are different data link layer protocol & standards for the different situation. It defines the a new concept called **frame.**
+
+Frames are a format for sending information over a layer 2 network. Layer 2 also introduces a unique hardware address, called **MAC** address e.g. `3e:22:fb:b9:5b:75` for every device in the network. The MAC address is *hexadecimal* address, and it is 48 bits long. THe MAC address is not software assigned, in other word, the address is uniquely attached to a specific piece of hardware.
+
+The MAC address is formed of two parts:
+
+-   OUI which is the organizationally unique identifier and this assigned to companies who manufacture network devices.
+
+-   NIC (Network interface controller)
+
+Combining these two parts together causing the MAC address be globally unique.
+
+The frame is the thing that layer two uses for communication is a container of sorts, and has a few different components:
+
+-   **The Preamble & start frame delimiter.** It allows the devices to know that it's the start of the frame, so they can identify the various parts of that frame.
+
+-   **The destination and the source MAC addresses.**
+
+-   **EtherType** which is commonly used to specify which *layer three protocol* is putting its data inside a frame
+
+-   **Payload** which is anywhere from 46 to 1500 bites in size for standard frames. It contains the data that the frame is sending. The data is generally provided by the layer three protocol and the protocol which is used
+
+-   **Frame check sequence** which is used to identify any errors in the frame.
+
+[![Layer 2 - Data Link - Frame, Source: Tech Fundamentals Course by Adrian Cantrill](/assets/pics/fig-01.png){fig-align="center"}](https://learn.cantrill.io/courses/enrolled/2022818)
