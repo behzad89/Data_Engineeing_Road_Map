@@ -5,8 +5,10 @@ project:
     - "assets"
   render:
     - "index.qmd"
-    - "modules/Tech_Fundemental.qmd"
-
+    - "modules/01.Tech_Fundemental.qmd"
+    - "modules/012.OSI7_layers.qmd"
+    - "modules/100.Tips_Tricks.qmd"
+    - "modules/101.GCP.qmd"
 book:
   title: "DE Roadmap"
   author:
@@ -22,9 +24,15 @@ book:
       Author:[[Behzad Valipour Sh.]{.green}](https://behzad-valipour.netlify.app), Senior Software Engineer & team leader at [[Imago]{.blue}](https://imago.ac.uk) project.
 
 
-  chapters: 
+  chapters:
     - "index.qmd"
-    - "modules/Tech_Fundemental.qmd"
+    - part: "modules/01.Tech_Fundemental.qmd"
+      chapters:
+        - "modules/012.OSI7_layers.qmd"
+
+    - part: "modules/100.Tips_Tricks.qmd"
+      chapters:
+        - "modules/101.GCP.qmd"
 number-sections: false
 
 format:

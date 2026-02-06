@@ -1,8 +1,4 @@
-# Tech Fundemental
-
-All the information presented here was collected from the [Tech Fundamentals course](https://learn.cantrill.io/p/tech-fundamentals) by [Adrian Cantrill](https://linkedin.com/in/adriancantrill). I summarized the material to make it easier for myself and others to review it quickly; however, I recommend taking the course itself, as it is free of charge and provides much more detailed information.
-
-## **OSI 7-Layer Networking Model**
+# OSI 7-Layer Networking Model
 
 The OSI (Open Systems Interconnection) model is a conceptual framework that describes the communication functions of a telecommunication or computer system. It includes 7 layers which is divided into two layers including Media Layers and Host Layers.
 

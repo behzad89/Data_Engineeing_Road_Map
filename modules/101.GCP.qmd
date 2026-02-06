@@ -1,0 +1,77 @@
+# Configuring a Google Cloud Storage Bucket on a VM
+
+This section is about configuring a Google Cloud Storage Bucket on a VM. This allows the VM to read and write data directly to the bucket. The instructions below assume that you already have access to a VM.
+
+## Install gcsfuse
+
+`gcsfuse` is a tool that allows you to mount GCS buckets as file systems on Linux and macOS.
+
+Official documentation and installation instructions can be found here: [Install or upgrade Cloud Storage FUSE](https://docs.cloud.google.com/storage/docs/cloud-storage-fuse/install).
+
+After installation, verify it by running:
+
+``` Bash
+gcsfuse --version
+```
+
+## **Mount the Storage Bucket**
+
+Create a local directory to serve as the mount point:
+
+``` Bash
+mkdir /mnt/embed2social-storage
+```
+
+Adjust permissions for the directory:
+
+``` bash
+chmod 777 /mnt/embed2social-storage
+```
+
+Give all the users to use mounted storage
+
+``` bash
+vim /etc/fuse.conf #uncomment the user_allow_other
+```
+
+Mount the bucket inside the created directory:
+
+``` bash
+gcsfuse --implicit-dirs -o allow_other --uid=0 --gid=0 --dir-mode=0775 embed2social-storage /mnt/embed2social-storage/
+```
+
+Verify the mount:
+
+``` bash
+df -h # mounted shoudl be seen in the list
+```
+
+Unmount the bucket when finished:
+
+``` bash
+fusermount -u /mnt/embed2social-storage/
+```
+
+::: callout-important
+The `--implicit-dirs` flag allows `gcsfuse` to handle directories implicitly.
+
+Ensure that your VM has the necessary permissions (via service account or user credentials) to access the GCS bucket.
+:::
+
+::: callout-tip
+At the moment, only the user who mounted the bucket has permission to read and write data. To allow all users to access the bucket and perform read/write operations, all users must be added to the `root` group. To do this, follow the steps below:
+
+``` bash
+sudo su -
+```
+``` bash
+usermode -aG root <username>
+```
+``` bash
+sudo chmod 775 /mnt
+```
+``` bash
+# To ckeck you can act as one of the users and try to read/write the data in bucket
+sudo su - <username>
+```
+:::
