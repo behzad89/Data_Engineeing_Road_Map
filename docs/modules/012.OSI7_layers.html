@@ -260,6 +260,75 @@ Tip
 <li><p>version four which has been used for decades.</p></li>
 <li><p>version six which adds more scalability</p></li>
 </ul>
+<p><strong>Address Resolution Protocol (ARP)</strong> is used generally when you have a layer 3 pocket, and you want to encapsulate it inside a frame, and then send that frame to a MAC address. Initially you do not know the MAC address so the protocol is required to determine the MAC address for a given IP address.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A normal network device such as your phone or laptop, it it received a pocket which was not destined for it, it would just drop that pocket. A router though, it is different. The router’s job is to route pockets so it is just fine to handle a pocket which is address somewhere else.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../assets/pics/fig-02.png" class="img-fluid figure-img"></p>
+<figcaption>IP Routing, Source: Tech Fundamentals Course by Adrian Cantrill</figcaption>
+</figure>
+</div>
+<p>What Layer 3 (Network) added to Layer 2?</p>
+<ul>
+<li><p>IP Address (IPv4/v6) - Cross network addressing</p></li>
+<li><p>APR - Find the MAC address for this IP or given IP address</p></li>
+<li><p>Route - where to forward a pocket</p></li>
+<li><p>Route Tables - Multiple routes</p></li>
+<li><p>Router - moves pockets from SRC top DEST - Encapsulating in L2 on the way</p></li>
+<li><p>Device &lt;=&gt; Device communication over the internet</p></li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What IP does not provide?</p>
+<p>It provides no method of individual channels of communication. Layer 3 provides pockets, and pockets only have source IP and destination IP. So if we are a given two devices you can only have one stream of communications. so you cannot have different applications on those devices communicating at the same time.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pockets could be delivered out of order. Individuals pockets moves across the internet through intermediate networks, and depending on network conditions, there is no guarantee that those pockets will take the same route from source to destination. Becasue of different network conditions, it is possible they could arrive in a different order.</p>
+</div>
+</div>
+</section>
+<section id="transport-session-layers" class="level2">
+<h2 class="anchored" data-anchor-id="transport-session-layers"><strong>Transport &amp; Session Layers</strong></h2>
+<p>Layer 4 build on top of the layer 3 (network layer), and it adds two new protocols:</p>
+<ul>
+<li><p>TCP (Transmission Control Protocol): You would pick TCP, when you want reliability, error correction, and ordering of data. It is used for most of the important application lab protocols such as HTTP, HTTPS, SSH, etc. TCP is a connection-oriented protocol meaning that you need to set up a connection between two devices and once set up, it creates a bidirectional channel of communications.</p></li>
+<li><p>UDP (Usrer Datagram Protocol): It is faster, because it dose not have the TCP overhead required for the reliable delivery of data. <em>This means that it is less reliable</em>.</p></li>
+</ul>
+<p>Both of these run on top of IP, and both of them add a collection of features depending on which one of them is used.</p>
+<p>TCP something called <strong>segment</strong>. A segment is just another container for data like packet and frame. TCP segment are encapsulated within IP pocket. Segments do not have source or destination IP addresses, because they use the IP packets for transit from source to destination. TCP segments add additional capabilities to IP packets including source and destination ports, sequence, acknowledgment etc.</p>
+<p>Source and destination ports which gives the combined TCP/IP protocol the ability to have multiple streams of conversations at the same time between two devices.</p>
+<p>The sequence number is incremented with each segment that’s sent and it’s unique. It can be used for error correction, if things need to be re-transmitted, and it can be used to ensure that when IP packets are received, and TCP segments are pulled out, they can be correctly ordered. The sequence number is a way of uniquely identifying a particular segment within a particular connection so the both sides can make observations about it</p>
+<p>The acknowledgment field is the that one side can indicate that is received up to and including a certain sequence number. Every segment which is transmitted needs to be acknowledged.</p>
 
 
 </section>
