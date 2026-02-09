@@ -260,6 +260,56 @@ Tip
 <li><p>version four which has been used for decades.</p></li>
 <li><p>version six which adds more scalability</p></li>
 </ul>
+<p><strong>IP Addressing</strong></p>
+<p>IP addressing is what identifies a device which uses layer 3 IP networking e.g.&nbsp;<code>133.33.3.7</code> . If you have a valid IP version 4 address, you can send packet to <code>133.33.3.7</code> . This format is known as <strong>Dotted Decimal Notion</strong> (4 x 0-255). All IP addresses are actually formed of two different parts:</p>
+<ul>
+<li><p>There is a <strong>network part</strong> which states which IP network this IP address belongs to</p></li>
+<li><p>THe <strong>host part</strong> which represents hosts on the network</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In this IP example: <code>133.33.3.7</code> , the network is <code>133.33</code> and the hosts on the network can use the remaining parts of the IP. In this case <code>3.7</code> is a one device on that network</p>
+</div>
+</div>
+<p>If the network part of the IP address matches between two different IP addresses, then they are on the same IP network. If not, they are on the different IP networks. IP addresses are not actually dotted decimal. THat’s how they are represented for humans. They are actually binary numbers. Each decimal part of the IP address is an <strong>8-bit</strong> binary number (4 sets of 8 bits (octets) for a total of 32 bits).</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This network has a <code>/16</code> prefix. 16 bits of the IP are the network, and the remaining bits are for hosts.</p>
+</div>
+</div>
+<p>On networks, IPs are wither statically assigned by human and this known as <em>static IP</em> or they are assigned automatically by machine (DHCP - Dynamic Host Configuration Protocol).</p>
+<p><strong>Subnet</strong> masks are a critical part of IP networking. They are configured on layer 3 interfaces along with IP addresses. What’s also configured on most network interfaces is a default <strong>gateway.</strong> The gateway is an IP address on the local network which packets are forwarded to, generally if the intended destination is not a local IP. Subnet masks are what allow an IP device to know if an IP address which is communicating with is on the same network or not, and that influences if the device needs to use a gateway it can communicate locally.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>IP: <code>133.33.3.7</code> -&gt; <code>100000101</code> . <code>00100001</code> . <code>00000011</code> . <code>00000111</code></p>
+<p>Subnet Mask: <code>255.255.0.0/16</code> -&gt; <code>11111111</code> . <code>111111</code> . <code>00000000</code> . <code>00000000</code></p>
+<p>Network part: <code>100000101</code> . <code>00100001</code> . <code>00000000</code> . <code>00000000</code> -&gt; <code>133.33.0.0</code></p>
+</div>
+</div>
 <p><strong>Address Resolution Protocol (ARP)</strong> is used generally when you have a layer 3 pocket, and you want to encapsulate it inside a frame, and then send that frame to a MAC address. Initially you do not know the MAC address so the protocol is required to determine the MAC address for a given IP address.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">

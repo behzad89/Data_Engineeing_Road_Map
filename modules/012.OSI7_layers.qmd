@@ -78,6 +78,36 @@ Two version of the internet protocol in use:
 
 -   version six which adds more scalability
 
+**IP Addressing**
+
+IP addressing is what identifies a device which uses layer 3 IP networking e.g. `133.33.3.7` . If you have a valid IP version 4 address, you can send packet to `133.33.3.7` . This format is known as **Dotted Decimal Notion** (4 x 0-255). All IP addresses are actually formed of two different parts:
+
+-   There is a **network part** which states which IP network this IP address belongs to
+
+-   THe **host part** which represents hosts on the network
+
+::: callout-note
+In this IP example: `133.33.3.7` , the network is `133.33` and the hosts on the network can use the remaining parts of the IP. In this case `3.7` is a one device on that network
+:::
+
+If the network part of the IP address matches between two different IP addresses, then they are on the same IP network. If not, they are on the different IP networks. IP addresses are not actually dotted decimal. THat's how they are represented for humans. They are actually binary numbers. Each decimal part of the IP address is an **8-bit** binary number (4 sets of 8 bits (octets) for a total of 32 bits).
+
+::: callout-important
+This network has a `/16` prefix. 16 bits of the IP are the network, and the remaining bits are for hosts.
+:::
+
+On networks, IPs are wither statically assigned by human and this known as *static IP* or they are assigned automatically by machine (DHCP - Dynamic Host Configuration Protocol).
+
+**Subnet** masks are a critical part of IP networking. They are configured on layer 3 interfaces along with IP addresses. What's also configured on most network interfaces is a default **gateway.** The gateway is an IP address on the local network which packets are forwarded to, generally if the intended destination is not a local IP. Subnet masks are what allow an IP device to know if an IP address which is communicating with is on the same network or not, and that influences if the device needs to use a gateway it can communicate locally.
+
+::: callout-tip
+IP: `133.33.3.7` -\> `100000101` . `00100001` . `00000011` . `00000111`
+
+Subnet Mask: `255.255.0.0/16` -\> `11111111` . `111111` . `00000000` . `00000000`
+
+Network part: `100000101` . `00100001` . `00000000` . `00000000` -\> `133.33.0.0`
+:::
+
 **Address Resolution Protocol (ARP)** is used generally when you have a layer 3 pocket, and you want to encapsulate it inside a frame, and then send that frame to a MAC address. Initially you do not know the MAC address so the protocol is required to determine the MAC address for a given IP address.
 
 ::: callout-warning
@@ -116,7 +146,7 @@ Layer 4 build on top of the layer 3 (network layer), and it adds two new protoco
 
 -   TCP (Transmission Control Protocol): You would pick TCP, when you want reliability, error correction, and ordering of data. It is used for most of the important application lab protocols such as HTTP, HTTPS, SSH, etc. TCP is a connection-oriented protocol meaning that you need to set up a connection between two devices and once set up, it creates a bidirectional channel of communications.
 
--    UDP (Usrer Datagram Protocol): It is faster, because it dose not have the TCP overhead required for the reliable delivery of data. *This means that it is less reliable*.
+-   UDP (Usrer Datagram Protocol): It is faster, because it dose not have the TCP overhead required for the reliable delivery of data. *This means that it is less reliable*.
 
 Both of these run on top of IP, and both of them add a collection of features depending on which one of them is used.
 
