@@ -62,6 +62,28 @@
     ]
   },
   {
+    "objectID": "modules/013.Other_Networking.html",
+    "href": "modules/013.Other_Networking.html",
+    "title": "Other Networking",
+    "section": "",
+    "text": "Network Address Translation (NAT)\nNAT can be used within the home networks, business networks and cloud environment. NAT is a process which is designed to address the growing shortage of IP version 4 addresses. To give internet access to private devices, we need to use NAT. It also provides some additional benefits. There are multiple types of NAT which translate private IPv4 address to public.\nStatic NAT device translates from one specific private address to one specific public address. It gives that private address access to the public internet in both directions and this is how the Internet Gateway within AWS works.\nDynamic NAT is similar but there is not this statistic allocation. THere is a pool of public IP addresses to use and these are allocated as needed. This method is generally used when you have a large number of private IP addresses. and want them all to have internet access via public IPs.\nPort Address Translation (PAT) translates many private addresses into the single public address. This is likely what your home internet router does. This is the method the NAT Gateway or Nat Instances use within AWS.",
+    "crumbs": [
+      "Tech Fundemental",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Other Networking</span>"
+    ]
+  },
+  {
+    "objectID": "modules/013.Other_Networking.html#network-address-translation-nat",
+    "href": "modules/013.Other_Networking.html#network-address-translation-nat",
+    "title": "Other Networking",
+    "section": "",
+    "text": "Important\n\n\n\nNAT as a process only makes sense for IP version 4. Since IP 6 adds so many more addresses, we do not need any form of private addressing and as such we do not need translation.\n\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nWith PAT you cannot initiate traffic to the private devices, because without an entry the NAT table, the NAT device wont know to which device traffic should be translated and forwarded to. On the other words, private devices are hidden and cannot be directly accessed from the internet.",
+    "crumbs": [
+      "Tech Fundemental",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Other Networking</span>"
+    ]
+  },
+  {
     "objectID": "modules/100.Tips_Tricks.html",
     "href": "modules/100.Tips_Tricks.html",
     "title": "Tips & Tricks",
@@ -79,7 +101,7 @@
     "text": "Install gcsfuse\nThis section is about configuring a Google Cloud Storage Bucket on a VM. This allows the VM to read and write data directly to the bucket. The instructions below assume that you already have access to a VM.\ngcsfuse is a tool that allows you to mount GCS buckets as file systems on Linux and macOS.\nOfficial documentation and installation instructions can be found here: Install or upgrade Cloud Storage FUSE.\nAfter installation, verify it by running:",
     "crumbs": [
       "Tips & Tricks",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Configuring a Google Cloud Storage Bucket on a VM</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Configuring a Google Cloud Storage Bucket on a VM</span>"
     ]
   },
   {
@@ -90,7 +112,7 @@
     "text": "gcsfuse --version",
     "crumbs": [
       "Tips & Tricks",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Configuring a Google Cloud Storage Bucket on a VM</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Configuring a Google Cloud Storage Bucket on a VM</span>"
     ]
   },
   {
@@ -101,7 +123,7 @@
     "text": "Mount the Storage Bucket\nCreate a local directory to serve as the mount point:\nmkdir /mnt/embed2social-storage\nAdjust permissions for the directory:\nchmod 777 /mnt/embed2social-storage\nGive all the users to use mounted storage\nvim /etc/fuse.conf #uncomment the user_allow_other\nMount the bucket inside the created directory:\ngcsfuse --implicit-dirs -o allow_other --uid=0 --gid=0 --dir-mode=0775 embed2social-storage /mnt/embed2social-storage/\nVerify the mount:\ndf -h # mounted shoudl be seen in the list\nUnmount the bucket when finished:\nfusermount -u /mnt/embed2social-storage/\n\n\n\n\n\n\nImportant\n\n\n\nThe --implicit-dirs flag allows gcsfuse to handle directories implicitly.\nEnsure that your VM has the necessary permissions (via service account or user credentials) to access the GCS bucket.\n\n\n\n\n\n\n\n\nTip\n\n\n\nAt the moment, only the user who mounted the bucket has permission to read and write data. To allow all users to access the bucket and perform read/write operations, all users must be added to the root group. To do this, follow the steps below:\nsudo su -\nusermode -aG root &lt;username&gt;\nsudo chmod 775 /mnt\n# To ckeck you can act as one of the users and try to read/write the data in bucket\nsudo su - &lt;username&gt;",
     "crumbs": [
       "Tips & Tricks",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Configuring a Google Cloud Storage Bucket on a VM</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Configuring a Google Cloud Storage Bucket on a VM</span>"
     ]
   }
 ]

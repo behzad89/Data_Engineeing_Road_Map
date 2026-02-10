@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Configuring a Google Cloud Storage Bucket on a VM – DE Roadmap</title>
+<title>Other Networking – DE Roadmap</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -65,7 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../modules/100.Tips_Tricks.html" rel="prev">
+<link href="../modules/100.Tips_Tricks.html" rel="next">
+<link href="../modules/012.OSI7_layers.html" rel="prev">
 <link href="../assets/logos/logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -118,7 +84,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/100.Tips_Tricks.html">Tips &amp; Tricks</a></li><li class="breadcrumb-item"><a href="../modules/101.GCP.html"><span class="chapter-title">Configuring a Google Cloud Storage Bucket on a VM</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/01.Tech_Fundemental.html">Tech Fundemental</a></li><li class="breadcrumb-item"><a href="../modules/013.Other_Networking.html"><span class="chapter-title">Other Networking</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -167,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/013.Other_Networking.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Other Networking</span></a>
+  <a href="../modules/013.Other_Networking.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Other Networking</span></a>
   </div>
 </li>
       </ul>
@@ -183,7 +149,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/101.GCP.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Configuring a Google Cloud Storage Bucket on a VM</span></a>
+  <a href="../modules/101.GCP.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Configuring a Google Cloud Storage Bucket on a VM</span></a>
   </div>
 </li>
       </ul>
@@ -197,9 +163,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/100.Tips_Tricks.html">Tips &amp; Tricks</a></li><li class="breadcrumb-item"><a href="../modules/101.GCP.html"><span class="chapter-title">Configuring a Google Cloud Storage Bucket on a VM</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/01.Tech_Fundemental.html">Tech Fundemental</a></li><li class="breadcrumb-item"><a href="../modules/013.Other_Networking.html"><span class="chapter-title">Other Networking</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Configuring a Google Cloud Storage Bucket on a VM</span></h1>
+<h1 class="title"><span class="chapter-title">Other Networking</span></h1>
 </div>
 
 
@@ -216,28 +182,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This section is about configuring a Google Cloud Storage Bucket on a VM. This allows the VM to read and write data directly to the bucket. The instructions below assume that you already have access to a VM.</p>
-<section id="install-gcsfuse" class="level2">
-<h2 class="anchored" data-anchor-id="install-gcsfuse">Install gcsfuse</h2>
-<p><code>gcsfuse</code> is a tool that allows you to mount GCS buckets as file systems on Linux and macOS.</p>
-<p>Official documentation and installation instructions can be found here: <a href="https://docs.cloud.google.com/storage/docs/cloud-storage-fuse/install">Install or upgrade Cloud Storage FUSE</a>.</p>
-<p>After installation, verify it by running:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gcsfuse</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="mount-the-storage-bucket" class="level2">
-<h2 class="anchored" data-anchor-id="mount-the-storage-bucket"><strong>Mount the Storage Bucket</strong></h2>
-<p>Create a local directory to serve as the mount point:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> /mnt/embed2social-storage</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Adjust permissions for the directory:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 777 /mnt/embed2social-storage</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Give all the users to use mounted storage</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">vim</span> /etc/fuse.conf <span class="co">#uncomment the user_allow_other</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Mount the bucket inside the created directory:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gcsfuse</span> <span class="at">--implicit-dirs</span> <span class="at">-o</span> allow_other <span class="at">--uid</span><span class="op">=</span>0 <span class="at">--gid</span><span class="op">=</span>0 <span class="at">--dir-mode</span><span class="op">=</span>0775 embed2social-storage /mnt/embed2social-storage/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Verify the mount:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">df</span> <span class="at">-h</span> <span class="co"># mounted shoudl be seen in the list</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Unmount the bucket when finished:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fusermount</span> <span class="at">-u</span> /mnt/embed2social-storage/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="network-address-translation-nat" class="level2">
+<h2 class="anchored" data-anchor-id="network-address-translation-nat">Network Address Translation (NAT)</h2>
+<p>NAT can be used within the home networks, business networks and cloud environment. NAT is a process which is designed to address the growing shortage of IP version 4 addresses. To give internet access to private devices, we need to use NAT. It also provides some additional benefits. There are multiple types of NAT which translate private IPv4 address to public.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -248,26 +195,23 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The <code>--implicit-dirs</code> flag allows <code>gcsfuse</code> to handle directories implicitly.</p>
-<p>Ensure that your VM has the necessary permissions (via service account or user credentials) to access the GCS bucket.</p>
+<p>NAT as a process only makes sense for IP version 4. Since IP 6 adds so many more addresses, we do not need any form of private addressing and as such we do not need translation.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
+<p><strong>Static NAT</strong> device translates from one specific private address to one specific public address. It gives that private address access to the public internet in both directions and this is how the <strong>Internet Gateway</strong> within AWS works.</p>
+<p><strong>Dynamic NAT</strong> is similar but there is not this statistic allocation. THere is a pool of public IP addresses to use and these are allocated as needed. This method is generally used when you have a large number of private IP addresses. and want them all to have internet access via public IPs.</p>
+<p><strong>Port Address Translation (PAT)</strong> translates many private addresses into the single public address. This is likely what your home internet router does. This is the method the <strong>NAT Gateway</strong> or <strong>Nat Instances</strong> use within AWS.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>At the moment, only the user who mounted the bucket has permission to read and write data. To allow all users to access the bucket and perform read/write operations, all users must be added to the <code>root</code> group. To do this, follow the steps below:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> su <span class="at">-</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">usermode</span> <span class="at">-aG</span> root <span class="op">&lt;</span>username<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chmod 775 /mnt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To ckeck you can act as one of the users and try to read/write the data in bucket</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> su <span class="at">-</span> <span class="op">&lt;</span>username<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>With PAT you cannot initiate traffic to the private devices, because without an entry the NAT table, the NAT device wont know to which device traffic should be translated and forwarded to. On the other words, private devices are hidden and cannot be directly accessed from the internet.</p>
 </div>
 </div>
 
@@ -677,11 +621,14 @@ Tip
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../modules/100.Tips_Tricks.html" class="pagination-link" aria-label="Tips &amp; Tricks">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Tips &amp; Tricks</span>
+      <a href="../modules/012.OSI7_layers.html" class="pagination-link" aria-label="OSI 7-Layer Networking Model">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">OSI 7-Layer Networking Model</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../modules/100.Tips_Tricks.html" class="pagination-link" aria-label="Tips &amp; Tricks">
+        <span class="nav-page-text">Tips &amp; Tricks</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

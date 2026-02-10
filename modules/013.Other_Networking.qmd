@@ -1,0 +1,19 @@
+# Other Networking
+
+## Network Address Translation (NAT)
+
+NAT can be used within the home networks, business networks and cloud environment. NAT is a process which is designed to address the growing shortage of IP version 4 addresses. To give internet access to private devices, we need to use NAT. It also provides some additional benefits. There are multiple types of NAT which translate private IPv4 address to public.
+
+::: callout-important
+NAT as a process only makes sense for IP version 4. Since IP 6 adds so many more addresses, we do not need any form of private addressing and as such we do not need translation.
+:::
+
+**Static NAT** device translates from one specific private address to one specific public address. It gives that private address access to the public internet in both directions and this is how the **Internet Gateway** within AWS works.
+
+**Dynamic NAT** is similar but there is not this statistic allocation. THere is a pool of public IP addresses to use and these are allocated as needed. This method is generally used when you have a large number of private IP addresses. and want them all to have internet access via public IPs.
+
+**Port Address Translation (PAT)** translates many private addresses into the single public address. This is likely what your home internet router does. This is the method the **NAT Gateway** or **Nat Instances** use within AWS.
+
+::: callout-warning
+With PAT you cannot initiate traffic to the private devices, because without an entry the NAT table, the NAT device wont know to which device traffic should be translated and forwarded to. On the other words, private devices are hidden and cannot be directly accessed from the internet.
+:::

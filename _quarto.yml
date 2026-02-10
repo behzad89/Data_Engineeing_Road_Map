@@ -9,6 +9,7 @@ project:
     - "modules/012.OSI7_layers.qmd"
     - "modules/100.Tips_Tricks.qmd"
     - "modules/101.GCP.qmd"
+    - "modules/013.Other_Networking.qmd"
 book:
   title: "DE Roadmap"
   author:
@@ -29,10 +30,12 @@ book:
     - part: "modules/01.Tech_Fundemental.qmd"
       chapters:
         - "modules/012.OSI7_layers.qmd"
+        - "modules/013.Other_Networking.qmd"
 
     - part: "modules/100.Tips_Tricks.qmd"
       chapters:
         - "modules/101.GCP.qmd"
+        
 number-sections: false
 
 format:
