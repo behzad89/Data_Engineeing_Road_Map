@@ -17,3 +17,45 @@ NAT as a process only makes sense for IP version 4. Since IP 6 adds so many more
 ::: callout-warning
 With PAT you cannot initiate traffic to the private devices, because without an entry the NAT table, the NAT device wont know to which device traffic should be translated and forwarded to. On the other words, private devices are hidden and cannot be directly accessed from the internet.
 :::
+
+## IP Address Space & Subnetting
+
+IPv4 standard created in 1981. It occupy the range from `0.0.0.0` to `255.255.255.255` which is equal to *4,294,967,296* addresses. Originally managed by organization called **IANA** which is the Internet Assigned Numbers Authority. Recently parts of the address spaces have been delegated to regional authorities such as **RIPE**, **ARIN** and **APNIC**.
+
+Historically this range was divided to into multiple smaller ranges which were allocated for specific functions:
+
+-   **Class A address:** start at`0.0.0.0` and ends `127.255.255.255` . This range contains **128** networks.
+
+-   **Class B Address:** start at `128.0.0.0` and it ends at `191.255.255.255` . This range of the IP space offers a total of **16,384** networks.
+
+-   **Class C Adress:** starts at `192.0.0.0` and it ends at `223.255.255.255` .This range provides over **2M** networks.
+
+::: callout-note
+There are also two more classes called class D which is used for multicast and Class E which is reserved.
+:::
+
+Private IP addresses are defined within a standards document called **RFC1918.** This document defines three ranges of IP version 4 addresses which can be used freely internally. These cannot be routed across the internet but can be used internally.
+
+The first private range is a single class A network which starts at `10.0.0.0` and ends at `10.255.255.255` and it provides a total 16.7M IPv4 addresses. The class B starts at `17.16.0.0` and ends at `172.31.255.255` and covers 16 networks. Class C ranges from `192.168.0.0` to `192.168.255.255` and covers 256 classes.
+
+Subnetting is the process of breaking network up into smaller pieces. Classless Inter-Domain Routing (CIDR) make it possible to break down networks. It defines a way of expressing the size of a network and it is called a prefix e.g. `/16` network.
+
+::: callout-tip
+The larger the prefix value, the smaller the network
+:::
+
+::: callout-note
+-   Orginal Network: `10.16.0.0/16` = `10.16.0.0` -\> `10.16.255.255`
+
+    -   Subnet 1: `10.16.0.0/17` = `10.16.0.0` -\> `10.16.127.255`
+
+        -   Subnet 1.1: `10.16.0.0/18` = `10.16.0.0` -\> `10.16.63.255`
+
+        -   Subnet 1.2 `10.16.64.0/18` = `10.16.64.0` -\> `10.16.127.255`
+
+    -   Subnet 2: `10.16.128.0/17` = `10.16.128.0` -\> `10.16.255.255`
+
+        -   Subnet 2.1: `10.16.128.0/18` = `10.16.128.0` -\> `10.16.191.255`
+
+        -   Subnet 2.2: `10.16.192.0/18` = `10.16.192.0` -\> `10.16.255.255`
+:::
