@@ -59,3 +59,15 @@ The larger the prefix value, the smaller the network
 
         -   Subnet 2.2: `10.16.192.0/18` = `10.16.192.0` -\> `10.16.255.255`
 :::
+
+## **Distributed Denial of Service (DDOS) Attacks**
+
+Attacks designed to **overload** the websites or other internet based services. The idea is to generate some kind of traffic which competes against legitimate connections and overloads the hardware or software providing the service. The challenge when dealing DDoS attacks come from the distributed nature of those attacks. It is hard to identify and block traffic because there can be millions of IP addresses involved with larger internet scale attacks.
+
+DDoS attacks is divided into three categories:
+
+-   Application Layer attacks such as HTTP floods. These take advantages of the imbalance of processing between client and server.
+
+-   Protocol-based attacks such as SYN floods. It takes advantage of the connection-based nature of requests.
+
+-   Volumetric attacks such as DNS amplification.

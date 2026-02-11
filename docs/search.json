@@ -95,6 +95,17 @@
     ]
   },
   {
+    "objectID": "modules/013.Other_Networking.html#distributed-denial-of-service-ddos-attacks",
+    "href": "modules/013.Other_Networking.html#distributed-denial-of-service-ddos-attacks",
+    "title": "Other Networking",
+    "section": "Distributed Denial of Service (DDOS) Attacks",
+    "text": "Distributed Denial of Service (DDOS) Attacks\nAttacks designed to overload the websites or other internet based services. The idea is to generate some kind of traffic which competes against legitimate connections and overloads the hardware or software providing the service. The challenge when dealing DDoS attacks come from the distributed nature of those attacks. It is hard to identify and block traffic because there can be millions of IP addresses involved with larger internet scale attacks.\nDDoS attacks is divided into three categories:\n\nApplication Layer attacks such as HTTP floods. These take advantages of the imbalance of processing between client and server.\nProtocol-based attacks such as SYN floods. It takes advantage of the connection-based nature of requests.\nVolumetric attacks such as DNS amplification.",
+    "crumbs": [
+      "Tech Fundemental",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Other Networking</span>"
+    ]
+  },
+  {
     "objectID": "modules/100.Tips_Tricks.html",
     "href": "modules/100.Tips_Tricks.html",
     "title": "Tips & Tricks",
