@@ -71,3 +71,32 @@ DDoS attacks is divided into three categories:
 -   Protocol-based attacks such as SYN floods. It takes advantage of the connection-based nature of requests.
 
 -   Volumetric attacks such as DNS amplification.
+
+## Convert Decimal to Binary
+
+Move through the binary table **left** to **right**
+
+1.  Compare decimal number to binary position value, if smaller write 0 (Zero) and move on to next table position
+
+2.  If it is equal or larger then minus the binary position value from your decimal number, and add 1 in the binary value column
+
+3.  Move on to next position with new decimal value
+
+From **133.33.33.7** let's consider **133**
+
+| Position              | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   |
+|-----------------------|-----|-----|-----|-----|-----|-----|-----|-----|
+| Binary Position Value | 128 | 64  | 32  | 16  | 8   | 4   | 2   | 1   |
+| Binary Value          | 1   | 0   | 0   | 0   | 0   | 1   | 0   | 1   |
+
+## Convert Binary to Decimal
+
+Each binary position has a decimal value. If bit is **1** add that value, if **0** add **0**
+
+E.g. **10000101**
+
+| Position              | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   |
+|-----------------------|-----|-----|-----|-----|-----|-----|-----|-----|
+| Binary Position Value | 128 | 64  | 32  | 16  | 8   | 4   | 2   | 1   |
+
+**(128 x 1) + (64 x 0)+ (32 x 0) + (16 x 0) + (16 x 0) + (4 x 1) + (2 x 0) + (1 x 1) = 133**
