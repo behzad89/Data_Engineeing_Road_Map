@@ -152,6 +152,11 @@ ul.task-list li input[type="checkbox"] {
   <a href="../modules/101.GCP.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Configuring a Google Cloud Storage Bucket on a VM</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/102.Docker.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Docker</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -290,6 +295,111 @@ Note
 <li><p>Protocol-based attacks such as SYN floods. It takes advantage of the connection-based nature of requests.</p></li>
 <li><p>Volumetric attacks such as DNS amplification.</p></li>
 </ul>
+</section>
+<section id="convert-decimal-to-binary" class="level2">
+<h2 class="anchored" data-anchor-id="convert-decimal-to-binary">Convert Decimal to Binary</h2>
+<p>Move through the binary table <strong>left</strong> to <strong>right</strong></p>
+<ol type="1">
+<li><p>Compare decimal number to binary position value, if smaller write 0 (Zero) and move on to next table position</p></li>
+<li><p>If it is equal or larger then minus the binary position value from your decimal number, and add 1 in the binary value column</p></li>
+<li><p>Move on to next position with new decimal value</p></li>
+</ol>
+<p>From <strong>133.33.33.7</strong> let’s consider <strong>133</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Position</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Binary Position Value</td>
+<td>128</td>
+<td>64</td>
+<td>32</td>
+<td>16</td>
+<td>8</td>
+<td>4</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Binary Value</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="convert-binary-to-decimal" class="level2">
+<h2 class="anchored" data-anchor-id="convert-binary-to-decimal">Convert Binary to Decimal</h2>
+<p>Each binary position has a decimal value. If bit is <strong>1</strong> add that value, if <strong>0</strong> add <strong>0</strong></p>
+<p>E.g. <strong>10000101</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Position</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Binary Position Value</td>
+<td>128</td>
+<td>64</td>
+<td>32</td>
+<td>16</td>
+<td>8</td>
+<td>4</td>
+<td>2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>(128 x 1) + (64 x 0)+ (32 x 0) + (16 x 0) + (16 x 0) + (4 x 1) + (2 x 0) + (1 x 1) = 133</strong></p>
 
 
 </section>

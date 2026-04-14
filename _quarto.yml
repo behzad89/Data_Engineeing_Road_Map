@@ -35,6 +35,7 @@ book:
     - part: "modules/100.Tips_Tricks.qmd"
       chapters:
         - "modules/101.GCP.qmd"
+        - "modules/102.Docker.qmd"
         
 number-sections: false
 

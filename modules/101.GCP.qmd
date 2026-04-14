@@ -10,7 +10,7 @@ Official documentation and installation instructions can be found here: [Install
 
 After installation, verify it by running:
 
-``` Bash
+``` bash
 gcsfuse --version
 ```
 
@@ -18,7 +18,7 @@ gcsfuse --version
 
 Create a local directory to serve as the mount point:
 
-``` Bash
+``` bash
 mkdir /mnt/embed2social-storage
 ```
 
@@ -64,12 +64,15 @@ At the moment, only the user who mounted the bucket has permission to read and w
 ``` bash
 sudo su -
 ```
+
 ``` bash
 usermode -aG root <username>
 ```
+
 ``` bash
 sudo chmod 775 /mnt
 ```
+
 ``` bash
 # To ckeck you can act as one of the users and try to read/write the data in bucket
 sudo su - <username>

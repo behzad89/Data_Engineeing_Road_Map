@@ -1,0 +1,15 @@
+# Docker 
+
+This section will include the tips and information about the **Docker** .
+
+## Docker Access
+
+After installation of the docker it is required to add the users to the related group. For this purpose we need to do the following:
+
+``` bash
+getent group docker # List the all the users in the docker group
+```
+
+``` bash
+sudo usermod -aG docker $USER # Use the USERNAME instead $USER
+```

@@ -106,6 +106,28 @@
     ]
   },
   {
+    "objectID": "modules/013.Other_Networking.html#convert-decimal-to-binary",
+    "href": "modules/013.Other_Networking.html#convert-decimal-to-binary",
+    "title": "Other Networking",
+    "section": "Convert Decimal to Binary",
+    "text": "Convert Decimal to Binary\nMove through the binary table left to right\n\nCompare decimal number to binary position value, if smaller write 0 (Zero) and move on to next table position\nIf it is equal or larger then minus the binary position value from your decimal number, and add 1 in the binary value column\nMove on to next position with new decimal value\n\nFrom 133.33.33.7 let’s consider 133\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPosition\n1\n2\n3\n4\n5\n6\n7\n8\n\n\n\n\nBinary Position Value\n128\n64\n32\n16\n8\n4\n2\n1\n\n\nBinary Value\n1\n0\n0\n0\n0\n1\n0\n1",
+    "crumbs": [
+      "Tech Fundemental",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Other Networking</span>"
+    ]
+  },
+  {
+    "objectID": "modules/013.Other_Networking.html#convert-binary-to-decimal",
+    "href": "modules/013.Other_Networking.html#convert-binary-to-decimal",
+    "title": "Other Networking",
+    "section": "Convert Binary to Decimal",
+    "text": "Convert Binary to Decimal\nEach binary position has a decimal value. If bit is 1 add that value, if 0 add 0\nE.g. 10000101\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPosition\n1\n2\n3\n4\n5\n6\n7\n8\n\n\n\n\nBinary Position Value\n128\n64\n32\n16\n8\n4\n2\n1\n\n\n\n(128 x 1) + (64 x 0)+ (32 x 0) + (16 x 0) + (16 x 0) + (4 x 1) + (2 x 0) + (1 x 1) = 133",
+    "crumbs": [
+      "Tech Fundemental",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Other Networking</span>"
+    ]
+  },
+  {
     "objectID": "modules/100.Tips_Tricks.html",
     "href": "modules/100.Tips_Tricks.html",
     "title": "Tips & Tricks",
@@ -146,6 +168,28 @@
     "crumbs": [
       "Tips & Tricks",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Configuring a Google Cloud Storage Bucket on a VM</span>"
+    ]
+  },
+  {
+    "objectID": "modules/102.Docker.html",
+    "href": "modules/102.Docker.html",
+    "title": "Docker",
+    "section": "",
+    "text": "Docker Access\nThis section will include the tips and information about the Docker .\nAfter installation of the docker it is required to add the users to the related group. For this purpose we need to do the following:",
+    "crumbs": [
+      "Tips & Tricks",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Docker</span>"
+    ]
+  },
+  {
+    "objectID": "modules/102.Docker.html#docker-access",
+    "href": "modules/102.Docker.html#docker-access",
+    "title": "Docker",
+    "section": "",
+    "text": "getent group docker # List the all the users in the docker group\nsudo usermod -aG docker $USER # Use the USERNAME instead $USER",
+    "crumbs": [
+      "Tips & Tricks",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Docker</span>"
     ]
   }
 ]
