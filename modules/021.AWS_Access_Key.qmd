@@ -1,0 +1,39 @@
+# AWS Access Keys
+
+To interact with AWS services programmatically, you need to have AWS access keys. These keys consist of an Access Key ID and a Secret Access Key. They are used to authenticate your requests to AWS services.
+
+## Creating AWS Access Keys
+
+To create and manage your AWS access keys, you can follow these steps:
+
+1.   Sign in to the AWS Management Console.
+
+2.  Navigate to the IAM (Identity and Access Management) service.
+
+3.  In the left navigation pane, click on "Users".
+
+4.  Select the user for whom you want to create access keys.
+
+5.  Click on the "Security credentials" tab.
+
+6.  Scroll down to the "Access keys" section and click on "Create access key".
+
+7.  A new access key will be generated. Make sure to copy the Access Key ID and Secret Access Key and store them securely, as you will not be able to retrieve the Secret Access Key again after this point.
+
+> Remember to keep your access keys secure and do not share them with anyone.
+
+## Using AWS Access Keys
+
+Once you have your AWS access keys, you can use them to authenticate your requests to AWS services. You can use these keys in various AWS SDKs, CLI, or API calls. For example, if you are using the AWS CLI, you can configure your access keys by running the following command:
+
+``` bash
+aws configure --profile iamadmin-general
+```
+
+This command will prompt you to enter your Access Key ID, Secret Access Key, default region, and output format. After configuring your access keys, you can start using the AWS CLI to interact with AWS services.
+
+``` bash
+aws s3 ls --profile iamadmin-general
+```
+
+> This command will list all the S3 buckets in your AWS account, using the access keys you configured

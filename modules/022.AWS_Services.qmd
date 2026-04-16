@@ -1,0 +1,2 @@
+# AWS Public vs Private Services
+In AWS, services are categorized as either public or private based on their accessibility and the way they are designed to be used.

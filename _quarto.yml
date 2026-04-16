@@ -10,6 +10,10 @@ project:
     - "modules/100.Tips_Tricks.qmd"
     - "modules/101.GCP.qmd"
     - "modules/013.Other_Networking.qmd"
+    - "modules/014.DNS.qmd"
+    - "modules/02.AWS_Arch.qmd"
+    - "modules/021.AWS_Services.qmd"
+
 book:
   title: "DE Roadmap"
   author:
