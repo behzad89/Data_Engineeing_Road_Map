@@ -1,11 +1,10 @@
-# Docker 
+# Docker
 
 This section will include the tips and information about the **Docker** .
 
 ## Docker Access
 
-After installation of the docker it is required to add the users to the related group. For this purpose we need to do the following:
-
+After [installation](https://docs.docker.com/engine/install/ubuntu/). of the docker it is required to add the users to the related group. For this purpose we need to do the following:
 ``` bash
 getent group docker # List the all the users in the docker group
 ```
@@ -13,3 +12,121 @@ getent group docker # List the all the users in the docker group
 ``` bash
 sudo usermod -aG docker $USER # Use the USERNAME instead $USER
 ```
+
+## Changing Storage Location Guide
+
+Docker uses two separate services that each store data in their own directories. When you want to move storage to a different disk or partition, both services must be reconfigured independently.
+
+| Service | Default Storage Path | Config File |
+|---|---|---|
+| **Docker** | `/var/lib/docker` | `/etc/docker/daemon.json` |
+| **Containerd** | `/var/lib/containerd` | `/etc/containerd/config.toml` |
+
+> 💡 **Why two services?** Docker is the high-level tool you interact with. Containerd is the low-level runtime Docker uses internally. Both store data separately, so both must be reconfigured when changing storage location.
+
+### Step 1 - Stop Docker Services
+ 
+Always stop both services before making any changes to prevent data corruption.
+ 
+```bash
+sudo systemctl stop docker
+sudo systemctl stop docker.socket
+sudo systemctl stop containerd
+```
+
+### Step 2 - Create the New Directory
+ 
+Create your new storage directory and set the correct permissions.
+ 
+```bash
+# Replace /mnt/data/docker with your desired path
+sudo mkdir -p /mnt/data/docker
+sudo chmod 711 /mnt/data/docker
+```
+ 
+### Step 3 - Migrate Existing Data (Recommended)
+ 
+If you have existing images and containers you want to keep, copy them to the new location first. Skip this step only if you are starting fresh.
+ 
+```bash
+sudo rsync -aP /var/lib/docker/ /mnt/data/docker/
+```
+ 
+> ⚠️ **Warning:** `rsync` may take a long time if you have large images. The `-P` flag shows progress. Do **NOT** skip the trailing slash after `/var/lib/docker/`
+ 
+### Step 4 - Edit Docker Daemon Config
+ 
+Create or edit the Docker daemon configuration file:
+ 
+```bash
+sudo nano /etc/docker/daemon.json
+```
+ 
+Add or update the `data-root` setting:
+ 
+```json
+{
+  "data-root": "/mnt/data/docker"
+}
+```
+ 
+> 📝 **Note:** If the file already has other settings, add the `data-root` line inside the existing curly braces, separated by a comma.
+ 
+### Step 5 - Restart Docker and Verify
+ 
+```bash
+sudo systemctl start docker
+ 
+# Verify Docker is using the new path
+docker info | grep "Docker Root Dir"
+ 
+# Expected output:
+# Docker Root Dir: /mnt/data/docker
+```
+ 
+---
+ 
+## Part 2: Change Containerd Storage Location
+
+### Step 1 - Create the New Directory
+ 
+```bash
+sudo mkdir -p /mnt/data/containerd
+sudo chmod 711 /mnt/data/containerd
+```
+ 
+### Step 2 - Update the Root Path in Config
+ Open the config file `/etc/containerd/config.toml` and remove the comment from the `root` line, then change the path: `/mnt/data/containerd`
+
+ 
+### Step 3 - Verify the Change Was Saved
+ 
+Before restarting, confirm the config file actually contains your new path:
+ 
+```bash
+sudo grep '^root' /etc/containerd/config.toml
+ 
+# Expected output:
+# root = '/mnt/data/containerd'
+```
+ 
+### Step 4 - Migrate Existing Data (Recommended)
+ 
+```bash
+sudo rsync -aP /var/lib/containerd/ /mnt/data/containerd/
+```
+ 
+### Step 5 - Restart Services and Verify
+ 
+```bash
+sudo systemctl restart docker
+sudo systemctl restart containerd
+ 
+# Verify containerd is using the new path
+sudo containerd config dump | grep '^root'
+ 
+# Expected output:
+# root = '/mnt/data/containerd'
+```
+ 
+---
