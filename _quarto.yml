@@ -12,7 +12,7 @@ project:
     - "modules/013.Other_Networking.qmd"
     - "modules/014.DNS.qmd"
     - "modules/02.AWS_Arch.qmd"
-    - "modules/021.AWS_Services.qmd"
+    - "modules/021.AWS_Access_Key.qmd"
 
 book:
   title: "DE Roadmap"
@@ -35,6 +35,10 @@ book:
       chapters:
         - "modules/012.OSI7_layers.qmd"
         - "modules/013.Other_Networking.qmd"
+        - "modules/014.DNS.qmd"
+    - part: "modules/02.AWS_Arch.qmd"
+      chapters:
+        - "modules/021.AWS_Access_Key.qmd"
 
     - part: "modules/100.Tips_Tricks.qmd"
       chapters:

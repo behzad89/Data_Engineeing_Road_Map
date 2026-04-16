@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Other Networking – DE Roadmap</title>
+<title>Domain Name System (DNS) – DE Roadmap</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../modules/014.DNS.html" rel="next">
-<link href="../modules/012.OSI7_layers.html" rel="prev">
+<link href="../modules/02.AWS_Arch.html" rel="next">
+<link href="../modules/013.Other_Networking.html" rel="prev">
 <link href="../assets/logos/logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -84,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/01.Tech_Fundemental.html">Tech Fundemental</a></li><li class="breadcrumb-item"><a href="../modules/013.Other_Networking.html"><span class="chapter-title">Other Networking</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/01.Tech_Fundemental.html">Tech Fundemental</a></li><li class="breadcrumb-item"><a href="../modules/014.DNS.html"><span class="chapter-title">Domain Name System (DNS)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -133,12 +133,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/013.Other_Networking.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Other Networking</span></a>
+  <a href="../modules/013.Other_Networking.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Other Networking</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../modules/014.DNS.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Domain Name System (DNS)</span></a>
+  <a href="../modules/014.DNS.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Domain Name System (DNS)</span></a>
   </div>
 </li>
       </ul>
@@ -189,9 +189,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/01.Tech_Fundemental.html">Tech Fundemental</a></li><li class="breadcrumb-item"><a href="../modules/013.Other_Networking.html"><span class="chapter-title">Other Networking</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../modules/01.Tech_Fundemental.html">Tech Fundemental</a></li><li class="breadcrumb-item"><a href="../modules/014.DNS.html"><span class="chapter-title">Domain Name System (DNS)</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Other Networking</span></h1>
+<h1 class="title"><span class="chapter-title">Domain Name System (DNS)</span></h1>
 </div>
 
 
@@ -208,222 +208,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="network-address-translation-nat" class="level2">
-<h2 class="anchored" data-anchor-id="network-address-translation-nat">Network Address Translation (NAT)</h2>
-<p>NAT can be used within the home networks, business networks and cloud environment. NAT is a process which is designed to address the growing shortage of IP version 4 addresses. To give internet access to private devices, we need to use NAT. It also provides some additional benefits. There are multiple types of NAT which translate private IPv4 address to public.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>NAT as a process only makes sense for IP version 4. Since IP 6 adds so many more addresses, we do not need any form of private addressing and as such we do not need translation.</p>
-</div>
-</div>
-<p><strong>Static NAT</strong> device translates from one specific private address to one specific public address. It gives that private address access to the public internet in both directions and this is how the <strong>Internet Gateway</strong> within AWS works.</p>
-<p><strong>Dynamic NAT</strong> is similar but there is not this statistic allocation. THere is a pool of public IP addresses to use and these are allocated as needed. This method is generally used when you have a large number of private IP addresses. and want them all to have internet access via public IPs.</p>
-<p><strong>Port Address Translation (PAT)</strong> translates many private addresses into the single public address. This is likely what your home internet router does. This is the method the <strong>NAT Gateway</strong> or <strong>Nat Instances</strong> use within AWS.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>With PAT you cannot initiate traffic to the private devices, because without an entry the NAT table, the NAT device wont know to which device traffic should be translated and forwarded to. On the other words, private devices are hidden and cannot be directly accessed from the internet.</p>
-</div>
-</div>
-</section>
-<section id="ip-address-space-subnetting" class="level2">
-<h2 class="anchored" data-anchor-id="ip-address-space-subnetting">IP Address Space &amp; Subnetting</h2>
-<p>IPv4 standard created in 1981. It occupy the range from <code>0.0.0.0</code> to <code>255.255.255.255</code> which is equal to <em>4,294,967,296</em> addresses. Originally managed by organization called <strong>IANA</strong> which is the Internet Assigned Numbers Authority. Recently parts of the address spaces have been delegated to regional authorities such as <strong>RIPE</strong>, <strong>ARIN</strong> and <strong>APNIC</strong>.</p>
-<p>Historically this range was divided to into multiple smaller ranges which were allocated for specific functions:</p>
-<ul>
-<li><p><strong>Class A address:</strong> start at<code>0.0.0.0</code> and ends <code>127.255.255.255</code> . This range contains <strong>128</strong> networks.</p></li>
-<li><p><strong>Class B Address:</strong> start at <code>128.0.0.0</code> and it ends at <code>191.255.255.255</code> . This range of the IP space offers a total of <strong>16,384</strong> networks.</p></li>
-<li><p><strong>Class C Adress:</strong> starts at <code>192.0.0.0</code> and it ends at <code>223.255.255.255</code> .This range provides over <strong>2M</strong> networks.</p></li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>There are also two more classes called class D which is used for multicast and Class E which is reserved.</p>
-</div>
-</div>
-<p>Private IP addresses are defined within a standards document called <strong>RFC1918.</strong> This document defines three ranges of IP version 4 addresses which can be used freely internally. These cannot be routed across the internet but can be used internally.</p>
-<p>The first private range is a single class A network which starts at <code>10.0.0.0</code> and ends at <code>10.255.255.255</code> and it provides a total 16.7M IPv4 addresses. The class B starts at <code>17.16.0.0</code> and ends at <code>172.31.255.255</code> and covers 16 networks. Class C ranges from <code>192.168.0.0</code> to <code>192.168.255.255</code> and covers 256 classes.</p>
-<p>Subnetting is the process of breaking network up into smaller pieces. Classless Inter-Domain Routing (CIDR) make it possible to break down networks. It defines a way of expressing the size of a network and it is called a prefix e.g.&nbsp;<code>/16</code> network.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The larger the prefix value, the smaller the network</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><p>Orginal Network: <code>10.16.0.0/16</code> = <code>10.16.0.0</code> -&gt; <code>10.16.255.255</code></p>
-<ul>
-<li><p>Subnet 1: <code>10.16.0.0/17</code> = <code>10.16.0.0</code> -&gt; <code>10.16.127.255</code></p>
-<ul>
-<li><p>Subnet 1.1: <code>10.16.0.0/18</code> = <code>10.16.0.0</code> -&gt; <code>10.16.63.255</code></p></li>
-<li><p>Subnet 1.2 <code>10.16.64.0/18</code> = <code>10.16.64.0</code> -&gt; <code>10.16.127.255</code></p></li>
-</ul></li>
-<li><p>Subnet 2: <code>10.16.128.0/17</code> = <code>10.16.128.0</code> -&gt; <code>10.16.255.255</code></p>
-<ul>
-<li><p>Subnet 2.1: <code>10.16.128.0/18</code> = <code>10.16.128.0</code> -&gt; <code>10.16.191.255</code></p></li>
-<li><p>Subnet 2.2: <code>10.16.192.0/18</code> = <code>10.16.192.0</code> -&gt; <code>10.16.255.255</code></p></li>
-</ul></li>
-</ul></li>
-</ul>
-</div>
-</div>
-</section>
-<section id="distributed-denial-of-service-ddos-attacks" class="level2">
-<h2 class="anchored" data-anchor-id="distributed-denial-of-service-ddos-attacks"><strong>Distributed Denial of Service (DDOS) Attacks</strong></h2>
-<p>Attacks designed to <strong>overload</strong> the websites or other internet based services. The idea is to generate some kind of traffic which competes against legitimate connections and overloads the hardware or software providing the service. The challenge when dealing DDoS attacks come from the distributed nature of those attacks. It is hard to identify and block traffic because there can be millions of IP addresses involved with larger internet scale attacks.</p>
-<p>DDoS attacks is divided into three categories:</p>
-<ul>
-<li><p>Application Layer attacks such as HTTP floods. These take advantages of the imbalance of processing between client and server.</p></li>
-<li><p>Protocol-based attacks such as SYN floods. It takes advantage of the connection-based nature of requests.</p></li>
-<li><p>Volumetric attacks such as DNS amplification.</p></li>
-</ul>
-</section>
-<section id="convert-decimal-to-binary" class="level2">
-<h2 class="anchored" data-anchor-id="convert-decimal-to-binary">Convert Decimal to Binary</h2>
-<p>Move through the binary table <strong>left</strong> to <strong>right</strong></p>
-<ol type="1">
-<li><p>Compare decimal number to binary position value, if smaller write 0 (Zero) and move on to next table position</p></li>
-<li><p>If it is equal or larger then minus the binary position value from your decimal number, and add 1 in the binary value column</p></li>
-<li><p>Move on to next position with new decimal value</p></li>
-</ol>
-<p>From <strong>133.33.33.7</strong> let’s consider <strong>133</strong></p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 36%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Position</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Binary Position Value</td>
-<td>128</td>
-<td>64</td>
-<td>32</td>
-<td>16</td>
-<td>8</td>
-<td>4</td>
-<td>2</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>Binary Value</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="convert-binary-to-decimal" class="level2">
-<h2 class="anchored" data-anchor-id="convert-binary-to-decimal">Convert Binary to Decimal</h2>
-<p>Each binary position has a decimal value. If bit is <strong>1</strong> add that value, if <strong>0</strong> add <strong>0</strong></p>
-<p>E.g. <strong>10000101</strong></p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 36%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Position</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Binary Position Value</td>
-<td>128</td>
-<td>64</td>
-<td>32</td>
-<td>16</td>
-<td>8</td>
-<td>4</td>
-<td>2</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-<p><strong>(128 x 1) + (64 x 0)+ (32 x 0) + (16 x 0) + (16 x 0) + (4 x 1) + (2 x 0) + (1 x 1) = 133</strong></p>
+<p>When you access to the website using the address in the web browser e.g.&nbsp;<code>www.netflix.com</code> . This way we ask DNS for the IP address of Netflix. DNS sends back the IP address and our device would use that IP address to connect over the Internet to the Netflix servers. The main piece of functionality which DNS provides is that it is a huge database which converts DNS names into IP addresses.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -828,13 +615,13 @@ Note
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../modules/012.OSI7_layers.html" class="pagination-link" aria-label="OSI 7-Layer Networking Model">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">OSI 7-Layer Networking Model</span></span>
+      <a href="../modules/013.Other_Networking.html" class="pagination-link" aria-label="Other Networking">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Other Networking</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../modules/014.DNS.html" class="pagination-link" aria-label="Domain Name System (DNS)">
-        <span class="nav-page-text"><span class="chapter-title">Domain Name System (DNS)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../modules/02.AWS_Arch.html" class="pagination-link" aria-label="AWS Solutions Architect">
+        <span class="nav-page-text">AWS Solutions Architect</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
