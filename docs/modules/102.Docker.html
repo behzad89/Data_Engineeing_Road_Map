@@ -191,6 +191,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <a href="../modules/021.AWS_Access_Key.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">AWS Access Keys</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../modules/022.AWS_ECS_Fargate.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">ECS Fargate Setup</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -361,9 +366,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected output:</span></span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># root = '/mnt/data/containerd'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
-
-
 </section>
+</section>
+<section id="creation-of-multi-platform-docker-image" class="level2">
+<h2 class="anchored" data-anchor-id="creation-of-multi-platform-docker-image">Creation of Multi-Platform Docker Image</h2>
+<p>Think of a CPU as a person who only understands one specific language. Different CPU manufacturers invented different “languages” (instruction sets) for their chips. A program compiled for one language won’t run on another — just like a Spanish speaker can’t understand Chinese.</p>
+<p>The Main Architectures: - <strong>x86_64 (amd64)</strong>: The most common architecture for desktops and servers, used by Intel and AMD. Used in: most laptops, desktops, servers, and AWS Fargate. The dominant architecture for cloud computing for the last 20 years. - <strong>ARM64 (aarch64)</strong>: Common in mobile devices and increasingly in servers. Made by ARM Holdings, licensed to Apple, Qualcomm, etc. Used in: Apple Silicon Macs (M1/M2/M3), iPhones, Android phones, Raspberry Pi, AWS Graviton.</p>
+<p>When the docker image is built on the Apple Slicon Mac (arm64), it will not run on the AWS Fargate (x86_64) because of the different CPU architectures. To solve this problem, we can create a multi-platform docker image that supports both architectures.</p>
+<p>Normally a Docker image contains code compiled for one architecture. A multi-platform image is a bundle that contains multiple versions of the same image — one per architecture — with a shared tag. Docker automatically picks the right version for the machine pulling it. You don’t need to think about it after building.</p>
+<p>Normally your Mac can only build <code>arm64</code> natively. <code>docker buildx</code> uses emulation (QEMU) to pretend to be an <code>amd64</code> machine and compile the image for it too — just slower.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and use a new builder instance that supports multiple platforms</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> buildx create <span class="at">--name</span> multiarch <span class="at">--driver</span> docker-container <span class="at">--use</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> buildx inspect <span class="at">--bootstrap</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Build and push multi-platform image</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> buildx build <span class="dt">\</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">--platform</span> linux/amd64,linux/arm64 <span class="dt">\</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">-t</span> behzad89/process-image:latest <span class="dt">\</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">--push</span> .</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify platforms</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> manifest inspect behzad89/process-image:latest</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+
 </section>
 
 </main> <!-- /main -->

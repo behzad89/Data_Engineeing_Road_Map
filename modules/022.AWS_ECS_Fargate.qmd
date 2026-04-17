@@ -1,0 +1,113 @@
+# ECS Fargate Setup
+
+## Overview
+
+Runs `process_image.py` as a one-off Fargate task that reads GeoTIFF tiles from S3, processes them, and uploads results back to S3.
+
+------------------------------------------------------------------------
+
+## 1. IAM Roles
+
+Two roles are required:
+
+### 1a. Task Role — `ecs-process-image-role`
+
+Used by your application code to access AWS services (S3).
+
+**Trusted entity (Trust Policy):**
+
+``` json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": { "Service": "ecs-tasks.amazonaws.com" },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
+
+**Permissions Policy:**
+
+``` json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["s3:GetObject", "s3:PutObject", "s3:ListBucket"],
+      "Resource": [
+        "arn:aws:s3:::s2-tiles-imago",
+        "arn:aws:s3:::s2-tiles-imago/*",
+        "arn:aws:s3:::s2-results-imago",
+        "arn:aws:s3:::s2-results-imago/*"
+      ]
+    }
+  ]
+}
+```
+
+### 2b. Task Execution Role — `ecsTaskExecutionRole`
+
+Used by ECS infrastructure to pull the Docker image and write logs to CloudWatch. This role is auto-created by AWS when first using ECS. Attach the AWS managed policy: - `AmazonECSTaskExecutionRolePolicy`
+
+------------------------------------------------------------------------
+
+## 3. ECS Cluster
+
+-   **Console:** ECS → Clusters → Create Cluster
+-   **Name:** `image-processing`
+-   **Infrastructure:** AWS Fargate (serverless)
+
+------------------------------------------------------------------------
+
+## 4. Task Definition
+
+-   **Console:** ECS → Task Definitions → Create new task definition
+-   **Family name:** `containerofimage`
+-   **Launch type:** Fargate
+-   **Task Role:** `ecs-process-image-role`
+-   **Task Execution Role:** `ecsTaskExecutionRole`
+-   **CPU / Memory:** 512 CPU / 1024 MB (adjust based on tile size)
+-   **Image URI**
+
+::: callout-caution
+In the `Logging`section be sure that `Use log collection` is checked. It is important when the container stops with error.
+:::
+
+## 5. Running the Task
+
+### Via Python
+
+``` python
+import boto3
+
+ecs = boto3.Session(profile_name='iamadmin-dev').client('ecs', region_name='us-east-1')
+
+response = ecs.run_task(
+    cluster='image-processing',
+    taskDefinition='containerofimage:6',
+    launchType='FARGATE',
+    networkConfiguration={
+        'awsvpcConfiguration': {
+            'subnets': [
+                'subnet-...',
+                'subnet-...',
+                'subnet-...'
+            ],
+            'securityGroups': ['sg-...'],
+            'assignPublicIp': 'ENABLED'
+        }
+    },
+    overrides={
+        'taskRoleArn': 'arn:aws:iam::...:role/ecs-process-image-role',
+        'executionRoleArn': 'arn:aws:iam::...:role/ecsTaskExecutionRole',
+        'containerOverrides': [{
+            'name': 'containerofimageprocessing',
+            'command': ['--src-bucket', 's2-tiles-imago', '--target-bucket', 's2-results-imago', '--tile-index', '0']
+        }]
+    }
+)
+```

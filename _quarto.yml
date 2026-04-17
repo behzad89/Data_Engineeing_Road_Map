@@ -13,6 +13,7 @@ project:
     - "modules/014.DNS.qmd"
     - "modules/02.AWS_Arch.qmd"
     - "modules/021.AWS_Access_Key.qmd"
+    - "modules/022.AWS_ECS_Fargate.qmd"
 
 book:
   title: "DE Roadmap"
@@ -39,6 +40,7 @@ book:
     - part: "modules/02.AWS_Arch.qmd"
       chapters:
         - "modules/021.AWS_Access_Key.qmd"
+        - "modules/022.AWS_ECS_Fargate.qmd"
 
     - part: "modules/100.Tips_Tricks.qmd"
       chapters:

@@ -130,3 +130,32 @@ sudo containerd config dump | grep '^root'
 ```
  
 ---
+
+## Creation of Multi-Platform Docker Image
+
+Think of a CPU as a person who only understands one specific language. Different CPU manufacturers invented different "languages" (instruction sets) for their chips. A program compiled for one language won't run on another — just like a Spanish speaker can't understand Chinese.
+
+The Main Architectures:
+- **x86_64 (amd64)**: The most common architecture for desktops and servers, used by Intel and AMD. Used in: most laptops, desktops, servers, and AWS Fargate. The dominant architecture for cloud computing for the last 20 years.
+- **ARM64 (aarch64)**: Common in mobile devices and increasingly in servers. Made by ARM Holdings, licensed to Apple, Qualcomm, etc. Used in: Apple Silicon Macs (M1/M2/M3), iPhones, Android phones, Raspberry Pi, AWS Graviton.
+
+When the docker image is built on the Apple Slicon Mac (arm64), it will not run on the AWS Fargate (x86_64) because of the different CPU architectures. To solve this problem, we can create a multi-platform docker image that supports both architectures.
+
+Normally a Docker image contains code compiled for one architecture. A multi-platform image is a bundle that contains multiple versions of the same image — one per architecture — with a shared tag. Docker automatically picks the right version for the machine pulling it. You don't need to think about it after building.
+
+Normally your Mac can only build `arm64` natively. `docker buildx` uses emulation (QEMU) to pretend to be an `amd64` machine and compile the image for it too — just slower.
+
+```bash
+# Create and use a new builder instance that supports multiple platforms
+docker buildx create --name multiarch --driver docker-container --use
+docker buildx inspect --bootstrap
+
+# Build and push multi-platform image
+docker buildx build \
+  --platform linux/amd64,linux/arm64 \
+  -t behzad89/process-image:latest \
+  --push .
+
+# Verify platforms
+docker manifest inspect behzad89/process-image:latest
+```
