@@ -68,6 +68,7 @@ Used by ECS infrastructure to pull the Docker image and write logs to CloudWatch
 -   **Console:** ECS → Task Definitions → Create new task definition
 -   **Family name:** `containerofimage`
 -   **Launch type:** Fargate
+-  **image**: URI of your Docker image in Docker Hub or ECR 
 -   **Task Role:** `ecs-process-image-role`
 -   **Task Execution Role:** `ecsTaskExecutionRole`
 -   **CPU / Memory:** 512 CPU / 1024 MB (adjust based on tile size)
@@ -105,7 +106,7 @@ response = ecs.run_task(
         'taskRoleArn': 'arn:aws:iam::...:role/ecs-process-image-role',
         'executionRoleArn': 'arn:aws:iam::...:role/ecsTaskExecutionRole',
         'containerOverrides': [{
-            'name': 'containerofimageprocessing',
+            'name': 'containerofimage',
             'command': ['--src-bucket', 's2-tiles-imago', '--target-bucket', 's2-results-imago', '--tile-index', '0']
         }]
     }
